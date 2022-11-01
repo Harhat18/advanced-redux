@@ -13,10 +13,17 @@ const reducer = (state = initialState, action) => {
   // eslint-disable-next-line default-case
   switch (action.type) {
     case "ADD":
-      state.count += action.payload;
+      state = {
+        ...state,
+        count: state.count + action.payload,
+      };
+
       break;
     case "SUBTRACT":
-      state.count -= action.payload;
+      state = {
+        ...state,
+        count: state.count - action.payload,
+      };
       break;
   }
   return state;
